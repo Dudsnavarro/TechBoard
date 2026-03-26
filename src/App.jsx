@@ -35,7 +35,7 @@ const temas = [
 
 const eventos =[
   {
-    capa: 'src/assets/Imagem1.png',
+    capa: 'https://alphaconvites.com.br/wp-content/uploads/2023/01/festa-antes-formatura-scaled-1.jpg',
     tema: temas[0],
     date: new Date(),
     titulo: 'Mulheres no Front'
@@ -48,7 +48,7 @@ const eventos =[
         <img src="/Logo.png" alt="Logo do site techboard" />
       </header>
       <Banner></Banner>
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas} />
       {temas.map(function (item) {
         return (
           <section key={item.id}>
