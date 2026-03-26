@@ -1,6 +1,8 @@
+import { Botao } from "../Botao";
 import { CampoDeEntrada } from "../CampoDeEntrada";
 import { CampoFormulario } from "../CampoFormulario";
 import { Label } from "../LabelFormulario";
+import { ListaSuspensa } from "../ListaSuspensa";
 import { TituloFormulario } from "../tituloFomulario";
 import "./formulario-de-eventos.css";
 
@@ -24,7 +26,14 @@ export function FormularioDeEvento() {
             placeholder="dataDoEvento dev hits"
             name="dataDoEvento"
           />
+           <Label htmlFor="temaDoEnvento">Tema do evento</Label>
+           <ListaSuspensa />
         </CampoFormulario>
+      </div>
+      <div className="acoes">
+        <Botao>
+          criar evento
+        </Botao>
       </div>
     </form>
   );

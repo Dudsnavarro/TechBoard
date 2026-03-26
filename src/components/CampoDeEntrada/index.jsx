@@ -1,3 +1,5 @@
+import './campo-de-entrada.css';
+
 export function CampoDeEntrada(props) {
-  return <input {...props} className="campo-entrada-form" />;
+  return < input className="campo-entrada-form" {...props} />;
 }
