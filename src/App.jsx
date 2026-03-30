@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import { Banner } from "./components/Banner";
 import { CardEvento } from "./components/CardEventos";
@@ -33,14 +34,18 @@ const temas = [
   }
 ]
 
-const eventos =[
+const [eventos, setEventos] = useState ([
   {
     capa: 'https://alphaconvites.com.br/wp-content/uploads/2023/01/festa-antes-formatura-scaled-1.jpg',
     tema: temas[0],
     date: new Date(),
     titulo: 'Mulheres no Front'
   }
-]
+])
+
+function adicioarEvento (evento) {
+  setEventos([...eventos, evento])
+}
 
   return (
     <main>
@@ -48,12 +53,14 @@ const eventos =[
         <img src="/Logo.png" alt="Logo do site techboard" />
       </header>
       <Banner></Banner>
-      <FormularioDeEvento temas={temas} />
+      <FormularioDeEvento temas={temas} aoSubmeter={adicioarEvento} />
       {temas.map(function (item) {
         return (
           <section key={item.id}>
             <Tema tema={item} />
-            <CardEvento evento={eventos[0]} />
+            {eventos.map(function (item, index) {
+              return <CardEvento evento={item} key={index}/>
+            })} 
           </section>
         )
       })}
